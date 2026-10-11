@@ -68,7 +68,10 @@ p{margin:0}
 .logo b{color:var(--accent);font-weight:600}
 .nav{display:flex;gap:22px;font-size:14px}
 .nav a{text-decoration:none;color:var(--body)}
-.nav a:hover{color:var(--ink)}
+.nav a:hover,.nav a.on{color:var(--ink)}
+.nav a.on{box-shadow:0 2px 0 var(--accent);padding-bottom:3px}
+.mnav a.on{color:var(--accent)}
+.rprog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
 .top .btn{padding:10px 16px;font-size:14px}
 @media (max-width:900px){.nav{display:none}}
 
@@ -463,6 +466,7 @@ a.pain{margin-inline:0;padding:24px 14px}
   <nav class="mnav" id="mnav" aria-label="Разделы" hidden>
     <a href="#why">Почему сейчас</a><a href="#pains">Боли</a><a href="#edge">Отличие</a><a href="#system">Система</a><a href="#how">Как устроено</a><a href="#start">С чего начать</a><a href="#faq">Вопросы</a>
   </nav>
+  <div class="rprog" id="rprog" aria-hidden="true"></div>
 </header>
 
 <main id="top">
@@ -817,6 +821,32 @@ var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').mat
   io.observe(el);
   setTimeout(function(){el.classList.remove('pre')},12000);
 });
+}catch(e){}})();
+</script>
+<script>
+(function(){try{
+/* прогресс чтения */
+var bar=document.getElementById('rprog'),tick=false;
+function upd(){tick=false;var h=document.documentElement.scrollHeight-innerHeight;
+  bar.style.transform='scaleX('+(h>0?Math.min(1,Math.max(0,scrollY/h)):0)+')'}
+addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd)}},{passive:true});
+addEventListener('resize',upd);upd();
+/* подсветка активного раздела в меню */
+var links=[].slice.call(document.querySelectorAll('.nav a,.mnav a'));
+var secs=[];
+links.forEach(function(a){var id=(a.getAttribute('href')||'').slice(1);var s=id&&document.getElementById(id);
+  if(s&&secs.indexOf(s)<0)secs.push(s)});
+function mark(id){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+id)})}
+if('IntersectionObserver' in window&&secs.length){
+  var vis={};
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){vis[x.target.id]=x.isIntersecting});
+    var cur=null;secs.forEach(function(s){if(vis[s.id])cur=s.id});mark(cur)},
+    {rootMargin:'-72px 0px -55% 0px'});
+  secs.forEach(function(s){io.observe(s)});
+}
+/* ленивая загрузка картинок вне первого экрана */
+[].forEach.call(document.querySelectorAll('img:not([loading])'),function(i){
+  if(!i.closest('.hero')){i.setAttribute('loading','lazy');i.setAttribute('decoding','async')}});
 }catch(e){}})();
 </script>
 </body>
