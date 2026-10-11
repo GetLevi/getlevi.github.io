@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Программа сборки системы управления из девяти контуров с ИИ-усилением. Бесплатная диагностика, разбор с автором, программа для первого лица и команды.">
 <meta property="og:title" content="Management OS + AI — программа сборки системы управления">
-<meta property="og:description" content="Бесплатная диагностика системы управления, разбор результатов с автором и программа из девяти контуров.">
+<meta property="og:description" content="Бесплатная диагностика системы управления, разбор результатов с авторами и программа из девяти контуров.">
 <meta property="og:type" content="website">
 <title>Management OS + AI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -266,6 +266,103 @@ a.pain:hover .k{color:var(--accent)}
 .dl-t b{display:block;font:600 17px/1.3 var(--serif);margin-bottom:3px;color:var(--ink)}
 .dl-t span{font-size:14px;color:var(--body)}.dl-t .dl-go{display:block;margin-top:6px;font:500 13px/1 var(--sans);color:var(--accent)}
 @media (prefers-reduced-motion:reduce){.dl{transition:none}}
+
+/* ===== v2: живее, шире, с лицом ===== */
+:root{--wrap:1280px}
+.wrap{padding-inline:clamp(20px,4vw,56px)}
+.hero{background:linear-gradient(135deg,#efe9df 0%,var(--bg) 55%);padding-block:64px 56px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--accent)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero{background:linear-gradient(135deg,#222124 0%,var(--bg) 55%)}}
+:root[data-theme="dark"] .hero{background:linear-gradient(135deg,#222124 0%,var(--bg) 55%)}
+.hgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,64px);align-items:center}
+.hero h1{font-size:clamp(40px,6.4vw,84px);max-width:none}
+.hbtn{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.facts4{display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:12px 36px;margin-top:38px;padding-top:24px;border-top:1px solid var(--line)}
+.facts4 b{display:block;font:700 40px/1 var(--serif);color:var(--accent)}
+.facts4 span{display:block;font-size:13px;color:var(--body);margin-top:6px;max-width:15ch;line-height:1.35}
+.hr{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 18px 14px;box-shadow:0 18px 40px -24px rgba(29,29,31,.35)}
+.radar{width:100%;height:auto;display:block}
+.radar .rg{fill:none;stroke:var(--line);stroke-width:1}
+.radar .ax{stroke:var(--line);stroke-width:1}
+.radar .lb{font:500 15px var(--sans);fill:var(--body)}
+.radar .pb{fill:rgba(133,133,138,.22);stroke:var(--mut);stroke-width:1.6;stroke-dasharray:4 3}
+.radar .pa{fill:rgba(47,106,76,.22);stroke:var(--good);stroke-width:2.2;transform-origin:210px 210px;animation:grow 1.4s .2s cubic-bezier(.2,.8,.2,1) both}
+.radar .dt{fill:var(--good);opacity:0;animation:pop .4s both}
+@keyframes grow{from{transform:scale(.25);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes pop{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+.hr figcaption{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:12.5px;color:var(--body);padding:6px 6px 0}
+.hr figcaption i{display:inline-block;width:18px;height:0;border-top:2px solid;margin-right:6px;vertical-align:middle}
+.lg1 i{border-color:var(--mut);border-top-style:dashed}.lg2 i{border-color:var(--good)}
+.hr figcaption em{flex-basis:100%;color:var(--mut);font-size:12px}
+.steps{margin-top:40px}
+.authors2{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
+.au2{display:flex;gap:18px;align-items:center;min-width:0}
+.au2 img{width:96px;height:96px;border-radius:50%;object-fit:cover;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--accent)}
+.au2 .r{font:400 11px/1.3 var(--mono);letter-spacing:.12em;color:var(--accent);text-transform:uppercase}
+.au2 .nm{font:600 20px/1.3 var(--serif);color:var(--ink);margin-top:2px}
+.au2 .d{font-size:14px;color:var(--body);max-width:34ch}
+.authors2 .meta{margin-left:auto}
+@media (max-width:980px){.hgrid{grid-template-columns:1fr}.hr{max-width:520px}.facts4{grid-template-columns:repeat(2,auto)}}
+@media (max-width:600px){.au2 img{width:76px;height:76px}.hero:before{width:4px}}
+/* блоки: больше воздуха внутри, меньше по бокам; крупнее номера */
+.g5>div{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:6px;padding:22px 24px}
+.g5 .n{font:700 28px/1 var(--serif);color:var(--accent)}
+.g5{gap:20px}
+.pain{padding:24px 18px;margin-inline:-18px;border-radius:6px;transition:background .2s ease}
+.pain:hover{background:var(--surface)}
+.pain q{font-size:clamp(19px,2vw,24px)}
+.pain .n{font:700 22px/1 var(--serif);color:var(--accent)}
+/* появление при прокрутке */
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.radar .pa,.radar .dt{animation:none;opacity:1}}
+
+/* ===== v2b: оживление остальных разделов ===== */
+#pains{background:var(--surface)} #pains .pain:hover{background:var(--bg)}
+#system{background:var(--tint)}
+.pillars>div{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:6px;padding:20px 20px 22px;transition:transform .2s ease,box-shadow .2s ease}
+.pillars>div:hover{transform:translateY(-3px);box-shadow:0 14px 30px -20px rgba(29,29,31,.4)}
+.pillars .n{font:700 28px/1 var(--serif)}
+.card img{filter:none;width:84px;height:84px;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--accent)}
+.card{transition:transform .2s ease,box-shadow .2s ease}.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px -20px rgba(29,29,31,.4)}
+.resbox{margin-top:56px;background:var(--dark);color:var(--dark-ink);border-radius:10px;padding:clamp(22px,4vw,44px)}
+.resbox .res-h{margin-top:0;border-bottom-color:var(--dark-line)}
+.resbox .eb{color:#d9a7b0}.resbox .muted{color:var(--dark-mut)!important}
+.resbox .res>div{border-left-color:#7fbf9b}
+.resbox .res .v{color:#9fd6b5;font:600 clamp(22px,2.4vw,30px)/1.15 var(--serif)}
+.resbox .res .l{color:var(--dark-mut)}
+.resbox .fine{color:var(--dark-mut)}
+.loop span{transition:background .3s ease,color .3s ease,border-color .3s ease;animation:loopHi 4.5s infinite}
+.loop span:nth-of-type(2){animation-delay:1.5s}.loop span:nth-of-type(3){animation-delay:3s}
+@keyframes loopHi{0%,30%{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}34%,100%{background:var(--surface);color:var(--ink);border-color:var(--line)}}
+.ct{position:relative;overflow:hidden;transition:border-color .15s ease,transform .2s ease,box-shadow .2s ease,background .2s ease}
+.ct:hover{transform:translateY(-2px);box-shadow:0 12px 26px -20px rgba(29,29,31,.45)}
+.ct::after{content:attr(data-c);position:absolute;right:10px;bottom:-14px;font:700 64px/1 var(--serif);color:var(--accent);opacity:.08;pointer-events:none}
+.ct[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);box-shadow:none}
+.ct[aria-pressed="true"] .n,.ct[aria-pressed="true"] h3,.ct[aria-pressed="true"] p{color:var(--accent-ink)}
+.ct[aria-pressed="true"]::after{color:var(--accent-ink);opacity:.15}
+.cp{box-shadow:0 18px 40px -26px rgba(29,29,31,.45)}
+.seq li::before{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.seq li{border-left:2px solid var(--accent)}
+.seq li:last-child{border-left-color:transparent}
+.facts>div:last-child{background:var(--good-soft)}
+.facts>div:last-child b{color:var(--good)}
+.dl{transition:transform .2s ease,box-shadow .2s ease}.dl:hover{transform:translateY(-2px);box-shadow:0 12px 26px -20px rgba(29,29,31,.45)}
+.b3{transition:transform .2s ease,box-shadow .2s ease}
+.b3:hover{transform:translateY(-2px);box-shadow:0 14px 30px -22px rgba(29,29,31,.45)}
+.b3:first-child{background:var(--accent);border-color:var(--accent)}
+.b3:first-child .n,.b3:first-child h3,.b3:first-child p{color:var(--accent-ink)}
+.b3:first-child .btn{background:var(--accent-ink);color:var(--accent)}
+.b3 .n{font-size:56px}
+.quote2{display:grid;grid-template-columns:110px 1fr;gap:8px 28px;align-items:center;margin:52px 0 0;padding:30px 34px;background:var(--surface);border-radius:10px;border-left:6px solid var(--accent);max-width:960px}
+.quote2 img{grid-row:span 2;width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid var(--surface);box-shadow:0 0 0 2px var(--accent)}
+.quote2 blockquote{margin:0;font:italic 400 clamp(19px,2vw,24px)/1.45 var(--serif);color:var(--ink)}
+.quote2 figcaption{font:500 14px/1.3 var(--sans);color:var(--accent)}
+@media (max-width:600px){.quote2{grid-template-columns:1fr;padding:24px}.quote2 img{grid-row:auto;width:84px;height:84px}}
+.faq details{transition:background .2s ease;padding-inline:14px;margin-inline:-14px;border-radius:4px}
+.faq details:hover{background:var(--surface)}
+.faq details[open]{background:var(--surface);box-shadow:inset 3px 0 0 var(--accent)}
+@media (prefers-reduced-motion:reduce){.loop span{animation:none}.pillars>div,.card,.ct,.b3,.dl{transition:none}.pillars>div:hover,.card:hover,.ct:hover,.b3:hover,.dl:hover{transform:none}}
 </style>
 
 </head>
@@ -292,17 +389,36 @@ a.pain:hover .k{color:var(--accent)}
 <main id="top">
 <section class="hero">
   <div class="wrap">
-    <div class="eb">Программа сборки системы управления · старт 14 ноября 2026</div>
-    <h1>Management OS <span>+</span> AI</h1>
-    <p class="lead">В сложных экономических условиях профессиональная система управления — резерв, который можно выстроить внутри компании. Мы собираем её вместе с вами: девять контуров управления на ваших цифрах и с вашей командой.</p>
+    <div class="hgrid">
+      <div class="hl">
+        <div class="eb">Программа сборки системы управления · старт 14 ноября 2026</div>
+        <h1>Management OS <span>+</span> AI</h1>
+        <p class="lead">В сложных экономических условиях профессиональная система управления — резерв, который можно выстроить внутри компании. Мы собираем её вместе с вами: девять контуров управления на ваших цифрах и с вашей командой.</p>
+        <div class="hbtn"><a class="btn" href="test/">Пройти тест — 20 минут</a><a class="btn ghost" href="#how">Как устроена программа</a></div>
+        <div class="facts4">
+          <div><b>9</b><span>контуров управления</span></div>
+          <div><b>7</b><span>месяцев работы</span></div>
+          <div><b>5</b><span>человек: первое лицо и команда</span></div>
+          <div><b>30</b><span>минут бесплатного разбора</span></div>
+        </div>
+      </div>
+      <figure class="hr">
+        <svg viewBox="-70 46 560 316" role="img" aria-label="Иллюстрация: профиль управляемости по семи зонам до и после программы" class="radar">
+<polygon points="210.0,180.0 233.5,191.3 239.2,216.7 223.0,237.0 197.0,237.0 180.8,216.7 186.5,191.3" class="rg"/><polygon points="210.0,150.0 256.9,172.6 268.5,223.4 236.0,264.1 184.0,264.1 151.5,223.4 163.1,172.6" class="rg"/><polygon points="210.0,120.0 280.4,153.9 297.7,230.0 249.0,291.1 171.0,291.1 122.3,230.0 139.6,153.9" class="rg"/><polygon points="210.0,90.0 303.8,135.2 327.0,236.7 262.1,318.1 157.9,318.1 93.0,236.7 116.2,135.2" class="rg"/><line x1="210" y1="210" x2="210.0" y2="90.0" class="ax"/><line x1="210" y1="210" x2="303.8" y2="135.2" class="ax"/><line x1="210" y1="210" x2="327.0" y2="236.7" class="ax"/><line x1="210" y1="210" x2="262.1" y2="318.1" class="ax"/><line x1="210" y1="210" x2="157.9" y2="318.1" class="ax"/><line x1="210" y1="210" x2="93.0" y2="236.7" class="ax"/><line x1="210" y1="210" x2="116.2" y2="135.2" class="ax"/>
+<polygon points="210.0,159.6 245.7,181.6 245.1,218.0 234.0,259.7 191.8,247.8 177.2,217.5 191.2,195.0" class="pb"/>
+<polygon points="210.0,102.0 286.9,148.6 313.0,233.5 251.7,296.5 169.4,294.3 109.4,233.0 139.6,153.9" class="pa"/>
+<circle cx="210.0" cy="102.0" r="4" class="dt" style="animation-delay:1.20s"/><circle cx="286.9" cy="148.6" r="4" class="dt" style="animation-delay:1.28s"/><circle cx="313.0" cy="233.5" r="4" class="dt" style="animation-delay:1.36s"/><circle cx="251.7" cy="296.5" r="4" class="dt" style="animation-delay:1.44s"/><circle cx="169.4" cy="294.3" r="4" class="dt" style="animation-delay:1.52s"/><circle cx="109.4" cy="233.0" r="4" class="dt" style="animation-delay:1.60s"/><circle cx="139.6" cy="153.9" r="4" class="dt" style="animation-delay:1.68s"/><text x="210.0" y="70.0" text-anchor="middle" class="lb">Стратегия</text><text x="322.6" y="124.2" text-anchor="start" class="lb">Финансы</text><text x="350.4" y="246.0" text-anchor="start" class="lb">Целеполагание</text><text x="272.5" y="343.7" text-anchor="start" class="lb">Люди</text><text x="147.5" y="343.7" text-anchor="end" class="lb">Клиенты</text><text x="69.6" y="246.0" text-anchor="end" class="lb">Решения</text><text x="97.4" y="124.2" text-anchor="end" class="lb">ИИ</text></svg>
+        <figcaption><span class="lg1"><i></i>Типичный профиль до</span><span class="lg2"><i></i>Цель программы</span><em>Иллюстрация, не данные конкретной компании</em></figcaption>
+      </figure>
+    </div>
     <div class="steps">
       <a class="step primary" href="test/"><span class="n">ШАГ 01</span><b>Пройдите тест</b><span>27 вопросов, около 20 минут, бесплатно и без регистрации</span><span class="go">Начать диагностику →</span></a>
       <a class="step" href="https://t.me/ecmen11"><span class="n">ШАГ 02</span><b>Получите разбор</b><span>30 минут с авторами программы по коду вашего результата</span><span class="go">Telegram @ecmen11 →</span></a>
       <a class="step" href="#how"><span class="n">ШАГ 03</span><b>Соберите систему</b><span>7 месяцев, 9 контуров, первое лицо и команда до 4 человек</span><span class="go">Как устроена программа →</span></a>
     </div>
-    <div class="authors">
-      <div class="au"><img src="alex.jpg" alt="Александр Мартынов"><div><div class="r">Автор и основной ведущий</div><div class="nm">Александр Мартынов</div><div class="d">Действующий CEO и член совета директоров, MBA, CCCX, HRBP</div></div></div>
-      <div class="au"><img src="irina.jpg" alt="Ирина Жильцова"><div><div class="r">Соавтор программы</div><div class="nm">Ирина Жильцова</div><div class="d">Эксперт в области HR, командный коуч ICF, 25+ лет в HR</div></div></div>
+    <div class="authors2">
+      <div class="au2"><img src="alex.jpg" alt="Александр Мартынов"><div><div class="r">Автор и основной ведущий</div><div class="nm">Александр Мартынов</div><div class="d">Действующий CEO и член совета директоров, MBA, CCCX, HRBP</div></div></div>
+      <div class="au2"><img src="irina.jpg" alt="Ирина Жильцова"><div><div class="r">Соавтор программы</div><div class="nm">Ирина Жильцова</div><div class="d">Эксперт в области HR, командный коуч ICF, 25+ лет в HR</div></div></div>
       <div class="meta">9 контуров · 7 месяцев<br>14.11.2026 — 29.05.2027</div>
     </div>
   </div>
@@ -359,7 +475,7 @@ a.pain:hover .k{color:var(--accent)}
       <div class="card"><img src="alex.jpg" alt="Александр Мартынов"><div class="r">Автор</div><h3>Александр Мартынов</h3><p>Действующий генеральный директор и член совета директоров: 1400+ сотрудников, 200 000+ клиентов, пять филиалов, семь направлений бизнеса в B2B и B2C. Каждый инструмент программы сначала внедрён на его предприятии — и по ним он управляет сейчас.</p></div>
       <div class="card"><img src="irina.jpg" alt="Ирина Жильцова"><div class="r">Соавтор</div><h3>Ирина Жильцова</h3><p>Более 25 лет в HR — путь от рекрутера до директора по персоналу крупной компании. Корпоративная культура, работа команды, стратегические сессии и совещания. ТОП-50 HR-профессионалов, «Лучший директор по персоналу».</p></div>
     </div>
-    <div class="res-h"><div class="eb">Результаты на предприятии автора</div><span class="mono muted" style="font-size:13px">за полтора года</span></div>
+    <div class="resbox"><div class="res-h"><div class="eb">Результаты на предприятии автора</div><span class="mono muted" style="font-size:13px">за полтора года</span></div>
     <div class="res">
       <div><span class="v">×1,5–2</span><span class="l">Маржинальность направлений</span></div>
       <div><span class="v">−30–40%</span><span class="l">Текучесть кадров</span></div>
@@ -370,7 +486,7 @@ a.pain:hover .k{color:var(--accent)}
       <div><span class="v">вручную → ИИ</span><span class="l">Контроль поручений после совещаний — ИИ-агент</span></div>
       <div><span class="v">6 этапов</span><span class="l">Подготовка решений: глубокий поиск, мнение ИИ, пре-мортем</span></div>
     </div>
-    <p class="fine">Один кейс без контрольной группы, а не исследование: показываем, что было и что стало. На ряд показателей влияло сразу несколько факторов.</p>
+    <p class="fine">Один кейс без контрольной группы, а не исследование: показываем, что было и что стало. На ряд показателей влияло сразу несколько факторов.</p></div>
   </div>
 </section>
 
@@ -479,7 +595,7 @@ a.pain:hover .k{color:var(--accent)}
       <div class="b3"><span class="n">02</span><div><h3>Получите разбор результатов с авторами</h3><p>Пришлите код из заключения в Telegram — Александр Мартынов и Ирина Жильцова вместе разберут ваш результат на 30-минутном созвоне: где система теряет деньги, какие риски критичны, что делать в первую очередь. Бесплатно и без обязательств.</p></div><a class="btn" href="https://t.me/ecmen11">Отправить код →</a></div>
       <div class="b3"><span class="n">03</span><div><h3>Запишитесь на программу</h3><p>Если по итогам разбора формат вам подходит — обсудим участие и состав команды. Подробный паспорт программы можно скачать в блоке «Как устроена работа» или внизу страницы. Если не подходит — скажем прямо, до всякой оплаты.</p></div><a class="btn" href="https://t.me/ecmen11">Написать в Telegram →</a></div>
     </div>
-    <p class="quote">«Каждый инструмент программы я сначала внедрил у себя, ошибся, доработал — и только то, что реально сработало, попадает в программу».<span>Александр Мартынов</span></p>
+    <figure class="quote2"><img src="alex.jpg" alt=""><blockquote>«Каждый инструмент программы я сначала внедрил у себя, ошибся, доработал — и только то, что реально сработало, попадает в программу».</blockquote><figcaption>Александр Мартынов</figcaption></figure>
   </div>
 </section>
 
@@ -540,6 +656,16 @@ a.pain:hover .k{color:var(--accent)}
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
 })();
 </script>
-
+<script>
+(function(){try{document.documentElement.classList.add('js');
+var els=[].slice.call(document.querySelectorAll('.g5>div,.pain,.pillars>div,.card,.res>div,.step,.facts4>div,.au2,.ct,.seq li,.facts,.dl,.b3,.quote2,.faq details,.resbox'));
+els.forEach(function(e){e.classList.add('rv')});
+function done(e){if(!e.classList.contains('rv'))return;e.classList.add('in');setTimeout(function(){e.classList.remove('rv','in');e.style.transitionDelay=''},1000)}
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){done(x.target);io.unobserve(x.target)}})},{rootMargin:'0px 0px -6% 0px'});
+els.forEach(function(e,i){e.style.transitionDelay=((i%4)*70)+'ms';io.observe(e)});
+setTimeout(function(){els.forEach(done)},4000);
+}catch(e){}})();
+</script>
 </body>
 </html>
