@@ -71,6 +71,10 @@ p{margin:0}
 .nav a:hover,.nav a.on{color:var(--ink)}
 .nav a.on{box-shadow:0 2px 0 var(--accent);padding-bottom:3px}
 .mnav a.on{color:var(--accent)}
+.eb.tw{min-height:1em}
+.eb .caret{display:inline-block;width:.55em;height:1.05em;margin-left:2px;vertical-align:-.15em;background:currentColor;animation:caret .8s steps(1) infinite}
+.eb .caret.off{animation:none;opacity:0;transition:opacity .3s}
+@keyframes caret{50%{opacity:0}}
 .rprog{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;pointer-events:none}
 .top .btn{padding:10px 16px;font-size:14px}
 @media (max-width:900px){.nav{display:none}}
@@ -843,6 +847,21 @@ if('IntersectionObserver' in window&&secs.length){
     var cur=null;secs.forEach(function(s){if(vis[s.id])cur=s.id});mark(cur)},
     {rootMargin:'-72px 0px -55% 0px'});
   secs.forEach(function(s){io.observe(s)});
+}
+/* печатная машинка для подписей разделов */
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(!reduce&&'IntersectionObserver' in window){
+  [].forEach.call(document.querySelectorAll('section > .wrap > .eb'),function(el){
+    var full=el.textContent,txt=document.createElement('span'),car=document.createElement('span'),done=false;
+    car.className='caret';el.setAttribute('aria-label',full);txt.setAttribute('aria-hidden','true');
+    el.textContent='';el.classList.add('tw');el.appendChild(txt);el.appendChild(car);
+    function finish(){if(done)return;done=true;txt.textContent=full;setTimeout(function(){car.classList.add('off')},900);
+      setTimeout(function(){el.textContent=full;el.removeAttribute('aria-label');el.classList.remove('tw')},1300)}
+    function type(){var i=0;(function step(){if(done)return;txt.textContent=full.slice(0,++i);
+      if(i>=full.length){finish();return}setTimeout(step,full[i-1]===' '?70:42)})()}
+    var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){io.disconnect();setTimeout(type,250)}})},{rootMargin:'0px 0px -12% 0px'});
+    io.observe(el);addEventListener('beforeprint',finish);
+  });
 }
 /* ленивая загрузка картинок вне первого экрана */
 [].forEach.call(document.querySelectorAll('img:not([loading])'),function(i){
