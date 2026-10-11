@@ -364,6 +364,16 @@ a.pain:hover .k{color:var(--accent)}
 .faq details:hover{background:var(--surface)}
 .faq details[open]{background:var(--surface);box-shadow:inset 3px 0 0 var(--accent)}
 @media (prefers-reduced-motion:reduce){.loop span{animation:none}.pillars>div,.card,.ct,.b3,.dl{transition:none}.pillars>div:hover,.card:hover,.ct:hover,.b3:hover,.dl:hover{transform:none}}
+
+/* ===== v2c: правки по просмотру ===== */
+a.pain{margin-inline:0;padding:24px 14px}
+.faq details{margin-inline:0;padding-inline:14px}
+.note{max-width:none}
+.cp-ai{align-self:start}
+.resbox .res{grid-template-columns:repeat(3,1fr)}
+@media (max-width:800px){.resbox .res{grid-template-columns:1fr 1fr}}
+.quote2.noimg{grid-template-columns:1fr;max-width:none}
+@media (max-width:640px){a.pain{padding-inline:8px}}
 </style>
 
 </head>
@@ -377,6 +387,7 @@ a.pain:hover .k{color:var(--accent)}
       <a href="#edge">Отличие</a>
       <a href="#system">Система</a>
       <a href="#how">Как устроено</a>
+      <a href="#start">С чего начать</a>
       <a href="#faq">Вопросы</a>
     </nav>
     <div class="tr"><a class="btn" href="test/">Пройти тест</a>
@@ -447,7 +458,7 @@ a.pain:hover .k{color:var(--accent)}
     <h2>Всё сходится на вас — и всё упирается в вас</h2>
     <p class="lead">Пока рынок рос, он оплачивал неточности управления. Сейчас за них платит маржа, а время первого лица уходит на то, что должна делать система.</p>
     <div class="pains">
-      <a class="pain" href="#c-01" data-c="01"><span class="n">01</span><div><q>Работаем больше, а зарабатываем меньше</q><span class="c">Одно-два направления из пяти работают в минус, остальные их тянут. Видно это только по итогам года. А прибыль в отчёте есть, денег на счёте нет: они спрятались в запасах и в неоплаченных счетах клиентов.</span></div><span class="k">Финансы →</span></a>
+      <a class="pain" href="#c-01" data-c="01"><span class="n">01</span><div><q>Работаем больше, а зарабатываем меньше</q><span class="c">Часть направлений работает в минус, остальные их тянут. Прибыль в отчёте есть, а денег на счёте нет.</span></div><span class="k">Финансы →</span></a>
       <a class="pain" href="#c-02" data-c="02"><span class="n">02</span><div><q>Заявление на столе — и я впервые слышу, что он был недоволен</q><span class="c">Замена, ушедшие вместе с человеком знания и клиенты.</span></div><span class="k">Сотрудники →</span></a>
       <a class="pain" href="#c-03" data-c="03"><span class="n">03</span><div><q>Клиент не жалуется. Он просто уходит</q><span class="c">О проблеме узнаёте через квартал — по выручке.</span></div><span class="k">Клиенты →</span></a>
       <a class="pain" href="#c-04" data-c="04"><span class="n">04</span><div><q>Каждый директор прав по-своему, а компания стоит на месте</q><span class="c">Спор выигрывает тот, кто громче, а не тот, кто прав.</span></div><span class="k">Стратегия →</span></a>
@@ -482,10 +493,8 @@ a.pain:hover .k{color:var(--accent)}
       <div><span class="v">−30–40%</span><span class="l">Текучесть кадров</span></div>
       <div><span class="v">50% → 20%</span><span class="l">Уход новичков за 30–60 дней</span></div>
       <div><span class="v">в 5 раз</span><span class="l">Меньше жалоб клиентов</span></div>
-      <div><span class="v">минус → +45</span><span class="l">NPS клиентов</span></div>
+      <div><span class="v">из минуса в +45</span><span class="l">NPS клиентов</span></div>
       <div><span class="v">−10 → +4</span><span class="l">eNPS сотрудников</span></div>
-      <div><span class="v">вручную → ИИ</span><span class="l">Контроль поручений после совещаний — ИИ-агент</span></div>
-      <div><span class="v">6 этапов</span><span class="l">Подготовка решений: глубокий поиск, мнение ИИ, пре-мортем</span></div>
     </div>
     <p class="fine">Один кейс без контрольной группы, а не исследование: показываем, что было и что стало. На ряд показателей влияло сразу несколько факторов.</p></div>
   </div>
@@ -564,7 +573,7 @@ a.pain:hover .k{color:var(--accent)}
   <div class="wrap">
     <div class="eb">Как устроена работа</div>
     <h2>Систему собираете вы — практики ведут сборку и принимают результат</h2>
-    <p class="lead">Поэтому после программы система не разваливается, когда эксперт отходит в сторону: вы знаете, как она устроена, потому что собирали её своими руками.</p>
+    <p class="lead">Поэтому после программы система не разваливается, когда авторы программы отходят в сторону: вы знаете, как она устроена, потому что собирали её своими руками.</p>
     <div class="how">
       <ol class="seq">
         <li><b>Сессия 1 — как устроен контур</b><span>Что измеряется, какие решения следуют, где контур чаще всего рвётся — на примерах реальных компаний, включая предприятие автора.</span></li>
@@ -596,7 +605,7 @@ a.pain:hover .k{color:var(--accent)}
       <div class="b3"><span class="n">02</span><div><h3>Получите разбор результатов с авторами</h3><p>Пришлите код из заключения в Telegram — Александр Мартынов и Ирина Жильцова вместе разберут ваш результат на 30-минутном созвоне: где система теряет деньги, какие риски критичны, что делать в первую очередь. Бесплатно и без обязательств.</p></div></div>
       <div class="b3"><span class="n">03</span><div><h3>Запишитесь на программу</h3><p>Если по итогам разбора формат вам подходит — обсудим участие и состав команды. Подробный паспорт программы можно скачать в блоке «Как устроена работа» или внизу страницы. Если не подходит — скажем прямо, до всякой оплаты.</p></div><a class="btn" href="https://t.me/ecmen11">Написать в Telegram →</a></div>
     </div>
-    <figure class="quote2"><img src="alex.jpg" alt=""><blockquote>«Каждый инструмент программы я сначала внедрил у себя, ошибся, доработал — и только то, что реально сработало, попадает в программу».</blockquote><figcaption>Александр Мартынов</figcaption></figure>
+    <figure class="quote2 noimg"><blockquote>«Каждый инструмент программы я сначала внедрил у себя, ошибся, доработал — и только то, что реально сработало, попадает в программу».</blockquote><figcaption>Александр Мартынов</figcaption></figure>
   </div>
 </section>
 
