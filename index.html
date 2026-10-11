@@ -686,5 +686,42 @@ els.forEach(function(e,i){e.style.transitionDelay=((i%4)*70)+'ms';io.observe(e)}
 setTimeout(function(){els.forEach(done)},4000);
 }catch(e){}})();
 </script>
+<script>
+(function(){try{
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduce||!('IntersectionObserver' in window))return;
+var NUM=/\d+(?:,\d+)?/g, items=[];
+function ease(t){return 1-Math.pow(1-t,3)}
+function fmt(v,dec){var r=dec?v.toFixed(dec).replace('.',','):String(Math.round(v));return r}
+function textItem(el){
+  var tpl=el.textContent, nums=tpl.match(NUM)||[];
+  if(!nums.length)return null;
+  var vals=nums.map(function(n){return parseFloat(n.replace(',','.'))});
+  var decs=nums.map(function(n){return n.indexOf(',')>-1?n.split(',')[1].length:0});
+  function render(t){var i=0;el.textContent=tpl.replace(NUM,function(){var k=i++;return fmt(vals[k]*t,decs[k])})}
+  render(0);return {el:el,watch:el,margin:'0px',render:render,final:tpl};
+}
+function bigItem(wrap){
+  var v=parseInt(wrap.getAttribute('data-big'),10), fin=wrap.getAttribute('data-big');
+  if(isNaN(v))return null;
+  function render(t){wrap.setAttribute('data-big',String(Math.round(v*t)))}
+  render(0);return {el:wrap,watch:wrap,margin:'0px 0px -50% 0px',render:render,final:fin,big:true};
+}
+[].forEach.call(document.querySelectorAll('.facts4 b,.res .v'),function(e){var i=textItem(e);if(i)items.push(i)});
+[].forEach.call(document.querySelectorAll('.wrap[data-big]'),function(e){var i=bigItem(e);if(i)items.push(i)});
+function finish(it){if(it.big)it.el.setAttribute('data-big',it.final);else it.el.textContent=it.final;it.done=true}
+function run(it){
+  if(it.started)return;it.started=true;var t0=null,dur=1500;
+  function step(ts){if(t0===null)t0=ts;var p=Math.min(1,(ts-t0)/dur);
+    if(p>=1){finish(it);return}it.render(ease(p));requestAnimationFrame(step)}
+  requestAnimationFrame(step);
+}
+items.forEach(function(it){
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){run(it);io.disconnect()}})},{rootMargin:it.margin,threshold:it.big?0:0.4});
+  io.observe(it.watch);
+});
+setTimeout(function(){items.forEach(function(it){if(!it.started){it.started=true;finish(it)}})},12000);
+}catch(e){}})();
+</script>
 </body>
 </html>
