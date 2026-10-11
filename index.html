@@ -374,6 +374,15 @@ a.pain{margin-inline:0;padding:24px 14px}
 @media (max-width:800px){.resbox .res{grid-template-columns:1fr 1fr}}
 .quote2.noimg{grid-template-columns:1fr;max-width:none}
 @media (max-width:640px){a.pain{padding-inline:8px}}
+
+/* ===== v2d: новый заголовок, крупные цифры в разделах ===== */
+.hero h1{font-size:clamp(32px,3.9vw,54px);line-height:1.1;max-width:none;text-wrap:balance}
+.hero .lead{max-width:60ch}
+@media (min-width:1000px){
+  .wrap[data-big]{position:relative}
+  .wrap[data-big]::before{content:attr(data-big);position:absolute;right:clamp(20px,4vw,56px);top:-14px;font:700 clamp(120px,14vw,200px)/1 var(--serif);color:var(--accent);opacity:.09;pointer-events:none}
+  .wrap[data-big]::after{content:attr(data-cap);position:absolute;right:clamp(24px,4vw,60px);top:clamp(130px,15vw,200px);font:500 13px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);opacity:.6;pointer-events:none}
+}
 </style>
 
 </head>
@@ -403,9 +412,9 @@ a.pain{margin-inline:0;padding:24px 14px}
   <div class="wrap">
     <div class="hgrid">
       <div class="hl">
-        <div class="eb">Программа сборки системы управления · старт 14 ноября 2026</div>
-        <h1>Management OS <span>+</span> AI</h1>
-        <p class="lead">В сложных экономических условиях профессиональная система управления — резерв, который можно выстроить внутри компании. Мы собираем её вместе с вами: девять контуров управления на ваших цифрах и с вашей командой.</p>
+        <div class="eb">Management OS + AI · программа · старт 14 ноября 2026</div>
+        <h1>Соберите систему управления — <span>свой антикризисный резерв</span></h1>
+        <p class="lead">Management OS + AI — девять контуров управления, которые мы собираем вместе с вами: на ваших цифрах и с вашей командой. Профессиональная система управления, выстроенная внутри компании, помогает стабилизировать ситуацию в сложных условиях, сократить убытки и нарастить прибыль.</p>
         <div class="hbtn"><a class="btn" href="test/">Пройти тест — 20 минут</a><a class="btn ghost" href="#how">Как устроена программа</a></div>
         <div class="facts4">
           <div><b>9</b><span>контуров управления</span></div>
@@ -437,7 +446,7 @@ a.pain{margin-inline:0;padding:24px 14px}
 </section>
 
 <section class="s" id="why">
-  <div class="wrap">
+  <div class="wrap" data-big="5" data-cap="причин">
     <div class="eb">Почему сейчас</div>
     <h2>В сложных условиях выигрывает не тот, кто ждёт рынка, а тот, кто точнее управляет</h2>
     <p class="lead">Внешние условия не изменить. Но внутри почти каждой компании есть незадействованный резерв. Пока система управления не выстроена, он уходит в потери. Программа нужна, чтобы её выстроить и задействовать этот резерв.</p>
@@ -453,7 +462,7 @@ a.pain{margin-inline:0;padding:24px 14px}
 </section>
 
 <section class="s" id="pains">
-  <div class="wrap">
+  <div class="wrap" data-big="9" data-cap="болей">
     <div class="eb">Девять болей — девять контуров</div>
     <h2>Всё сходится на вас — и всё упирается в вас</h2>
     <p class="lead">Пока рынок рос, он оплачивал неточности управления. Сейчас за них платит маржа, а время первого лица уходит на то, что должна делать система.</p>
@@ -473,7 +482,7 @@ a.pain{margin-inline:0;padding:24px 14px}
 </section>
 
 <section class="s" id="edge">
-  <div class="wrap">
+  <div class="wrap" data-big="4" data-cap="отличия">
     <div class="eb">Главное отличие</div>
     <h2>Ведут не те, кто знает, как надо, — а те, кто так управляет каждую неделю</h2>
     <p class="lead">Курс даёт знания. Консультант даёт рекомендации. Мы даём систему, которая уже работает у нас, — и собираем её у вас, на ваших цифрах.</p>
@@ -501,7 +510,7 @@ a.pain{margin-inline:0;padding:24px 14px}
 </section>
 
 <section class="s" id="system">
-  <div class="wrap">
+  <div class="wrap" data-big="9" data-cap="контуров">
     <div class="eb">Что такое Management OS</div>
     <h2>Девять контуров, замкнутых в одну систему управления</h2>
     <p class="lead">Контур — замкнутый круг управления одной областью. Пока круг разомкнут, отчёты есть, а управления нет. Нажмите на контур, чтобы увидеть, что вы получите на выходе.</p>
@@ -570,7 +579,7 @@ a.pain{margin-inline:0;padding:24px 14px}
 </section>
 
 <section class="s" id="how">
-  <div class="wrap">
+  <div class="wrap" data-big="7" data-cap="месяцев">
     <div class="eb">Как устроена работа</div>
     <h2>Систему собираете вы — практики ведут сборку и принимают результат</h2>
     <p class="lead">Поэтому после программы система не разваливается, когда авторы программы отходят в сторону: вы знаете, как она устроена, потому что собирали её своими руками.</p>
@@ -596,7 +605,7 @@ a.pain{margin-inline:0;padding:24px 14px}
 </section>
 
 <section class="s start" id="start">
-  <div class="wrap">
+  <div class="wrap" data-big="3" data-cap="шага">
     <div class="eb">С чего начать</div>
     <h2>Три шага — и первые два ничего не стоят</h2>
     <p class="lead">Каждый шаг полезен сам по себе. Дальше вы идёте, только если видите в этом смысл.</p>
@@ -610,7 +619,7 @@ a.pain{margin-inline:0;padding:24px 14px}
 </section>
 
 <section class="s" id="faq">
-  <div class="wrap">
+  <div class="wrap" data-big="6" data-cap="вопросов">
     <div class="eb">Частые вопросы</div>
     <h2>Что обычно спрашивают до разбора</h2>
     <div class="faq">
