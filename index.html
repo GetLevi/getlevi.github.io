@@ -383,6 +383,64 @@ a.pain{margin-inline:0;padding:24px 14px}
   .wrap[data-big]::before{content:attr(data-big);position:absolute;right:clamp(20px,4vw,56px);top:-14px;font:700 clamp(120px,14vw,200px)/1 var(--serif);color:var(--accent);opacity:.09;pointer-events:none}
   .wrap[data-big]::after{content:attr(data-cap);position:absolute;right:clamp(24px,4vw,60px);top:clamp(130px,15vw,200px);font:500 13px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--accent);opacity:.6;pointer-events:none}
 }
+
+/* ===== v3: инфографика ===== */
+.wf{margin:48px 0 0;display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(20px,4vw,56px);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(20px,3vw,36px)}
+.wf-t .eb{margin-bottom:10px}.wf-t h3{font-size:24px;margin-bottom:10px}.wf-t p{font-size:15px;color:var(--body)}
+.wf-t .wf-n{margin-top:14px;font-size:12.5px;color:var(--mut);font-style:italic}
+.wf-c{display:flex;flex-direction:column;gap:14px}
+.wf-r{display:grid;grid-template-columns:minmax(120px,190px) 1fr 54px;gap:14px;align-items:center}
+.wf-l{font-size:14px;color:var(--body);line-height:1.3}
+.wf-r b{font:600 15px/1 var(--mono);color:var(--ink);text-align:right;font-variant-numeric:tabular-nums}
+.wf-tr{position:relative;height:26px;border-left:1px solid var(--mut)}
+.wf-b{position:absolute;top:0;bottom:0;border-radius:0 4px 4px 0;transform-origin:left center;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.wf-b.k{background:var(--mut)}
+.wf-b.m{background:var(--accent);border-radius:4px}
+.wf-b.g{background:var(--good)}
+.wf-r.tot{padding-top:12px;border-top:1px dashed var(--line)}
+.wf-r.tot .wf-l,.wf-r.tot b{color:var(--good);font-weight:600}
+.wf.pre .wf-b{transform:scaleX(0)}
+.wf .wf-r:nth-child(2) .wf-b{transition-delay:.25s}.wf .wf-r:nth-child(3) .wf-b{transition-delay:.5s}.wf .wf-r:nth-child(4) .wf-b{transition-delay:.75s}
+@media (max-width:820px){.wf{grid-template-columns:1fr}.wf-r{grid-template-columns:1fr 54px}.wf-l{grid-column:1/-1}.wf-tr{grid-column:1}}
+/* цикл */
+.cy{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:clamp(20px,4vw,56px);align-items:center;margin-top:36px;max-width:980px}
+.cy-s{width:100%;height:auto;display:block}
+.cy-r{fill:none;stroke:var(--line);stroke-width:1}
+.cy-a{fill:none;stroke:var(--accent);stroke-width:2}
+.cy-h{fill:var(--accent)}
+.cy-n{fill:var(--surface);stroke:var(--accent);stroke-width:2;animation:cyHi 4.5s infinite}
+.cy-n.n1{animation-delay:1.5s}.cy-n.n2{animation-delay:3s}
+@keyframes cyHi{0%,30%{fill:var(--accent)}34%,100%{fill:var(--surface)}}
+.cy-c1{font:600 17px var(--serif);fill:var(--ink)}.cy-c2{font:400 12px var(--mono);fill:var(--mut);letter-spacing:.06em}
+.cy-l{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+.cy-l li{padding:14px 18px;border-left:3px solid var(--line);background:var(--surface);border-radius:0 6px 6px 0;animation:cyLi 4.5s infinite}
+.cy-l li.n1{animation-delay:1.5s}.cy-l li.n2{animation-delay:3s}
+@keyframes cyLi{0%,30%{border-left-color:var(--accent)}34%,100%{border-left-color:var(--line)}}
+.cy-l b{display:block;font:600 17px/1.3 var(--serif);margin-bottom:3px}.cy-l span{font-size:14.5px;color:var(--body)}
+@media (max-width:700px){.cy{grid-template-columns:1fr}.cy-v{max-width:240px;margin:0 auto}}
+/* карта месяцев */
+.tl{margin:56px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(20px,3vw,36px)}
+.tl figcaption .eb{margin-bottom:8px}.tl figcaption h3{font-size:22px}
+.tl-w{margin-top:28px}
+.tl-mo{position:relative;height:22px;border-bottom:1px solid var(--line)}
+.tl-mo span{position:absolute;top:0;font:500 12px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);padding-left:6px;border-left:1px solid var(--line);height:22px}
+.tl-x{position:relative;height:140px}
+.tl-b{position:absolute;top:52px;height:34px;background:var(--accent);border-radius:4px;transform-origin:left center;transition:transform .5s ease}
+.tl-b i{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 12px/1 var(--mono);color:var(--accent-ink);font-style:normal}
+.tl-b span{position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;font:500 13px/1.2 var(--sans);color:var(--ink)}
+.tl-b.up span{bottom:44px}.tl-b.dn span{top:44px}
+.tl-b::after{content:"";position:absolute;left:50%;width:1px;background:var(--line)}
+.tl-b.up::after{bottom:34px;height:8px}.tl-b.dn::after{top:34px;height:8px}
+.tl-b:hover{filter:brightness(1.12)}
+.tl-m{position:absolute;top:0;bottom:0;border-left:2px dashed var(--good)}
+.tl-m span{position:absolute;top:0;left:6px;font:600 11px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--good);white-space:nowrap}
+.tl-m.end span{left:auto;right:6px}
+.tl.pre .tl-b{transform:scaleX(0)}
+.tl-list{display:none;list-style:none;margin:20px 0 0;padding:0}
+.tl-list li{display:grid;grid-template-columns:34px 1fr auto;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.tl-list b{font:600 13px/1.4 var(--mono);color:var(--accent)}.tl-list em{font-style:normal;color:var(--mut);font-size:13px}
+@media (max-width:900px){.tl-w{display:none}.tl-list{display:block}}
+@media (prefers-reduced-motion:reduce){.cy-n,.cy-l li{animation:none}.wf-b,.tl-b{transition:none}.wf.pre .wf-b,.tl.pre .tl-b{transform:none}}
 </style>
 
 </head>
@@ -457,6 +515,15 @@ a.pain{margin-inline:0;padding:24px 14px}
       <div><span class="n">04</span><h3>Решения: обоснованно, а не на ощупь</h3><p>Цена ошибки выросла. Процедура подготовки решений и ИИ как второе мнение снижают число решений, которые потом приходится переделывать.</p></div>
       <div><span class="n">05</span><h3>Издержки: рутину забирает ИИ</h3><p>Протоколы, сверка поручений, отчёты и подготовка материалов уходят ИИ-ассистентам. Время руководителей освобождается для управления, издержки на рутину снижаются.</p></div>
     </div>
+    <figure class="wf" aria-label="Условный пример: куда уходит прибыль из отчёта">
+      <div class="wf-t"><div class="eb">Где спрятались деньги</div><h3>Прибыль в отчёте есть, а на счёте её нет</h3><p>Часть заработанного лежит на складе и в неоплаченных счетах клиентов. Пока это не видно в цифрах, компания берёт кредит на собственные деньги.</p><p class="wf-n">Условный пример, в процентах от прибыли в отчёте</p></div>
+      <div class="wf-c" role="table">
+        <div class="wf-r" role="row"><span class="wf-l" role="cell">Прибыль в отчёте</span><span class="wf-tr"><i class="wf-b k" style="left:0;width:100%"></i></span><b role="cell">100%</b></div>
+        <div class="wf-r" role="row"><span class="wf-l" role="cell">Заморожено в запасах</span><span class="wf-tr"><i class="wf-b m" style="left:65%;width:35%"></i></span><b role="cell">−35%</b></div>
+        <div class="wf-r" role="row"><span class="wf-l" role="cell">Неоплаченные счета клиентов</span><span class="wf-tr"><i class="wf-b m" style="left:25%;width:40%"></i></span><b role="cell">−40%</b></div>
+        <div class="wf-r tot" role="row"><span class="wf-l" role="cell">Деньги на счёте</span><span class="wf-tr"><i class="wf-b g" style="left:0;width:25%"></i></span><b role="cell">25%</b></div>
+      </div>
+    </figure>
     <p class="note"><b>Без обещаний сверх возможного.</b> Система не отменяет влияния рынка и не заменяет сильного продукта. Она убирает потери, которые возникают не из-за рынка, а из-за неточности управления.</p>
   </div>
 </section>
@@ -514,7 +581,16 @@ a.pain{margin-inline:0;padding:24px 14px}
     <div class="eb">Что такое Management OS</div>
     <h2>Девять контуров, замкнутых в одну систему управления</h2>
     <p class="lead">Контур — замкнутый круг управления одной областью. Пока круг разомкнут, отчёты есть, а управления нет. Нажмите на контур, чтобы увидеть, что вы получите на выходе.</p>
-    <div class="loop" aria-label="Цикл контура"><span>измерение</span><i>→</i><span>решение</span><i>→</i><span>проверка исполнения</span><i>↺</i></div>
+    <div class="cy" aria-label="Цикл контура: измерение, решение, проверка исполнения">
+      <div class="cy-v"><svg viewBox="0 0 300 300" class="cy-s" aria-hidden="true"><defs><marker id="cyar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" class="cy-h"/></marker></defs>
+<circle cx="150" cy="150" r="105" class="cy-r"/><path d="M178.9,49.1 A105,105 0 0 1 251.9,175.4" class="cy-a" marker-end="url(#cyar)"/><path d="M222.9,225.5 A105,105 0 0 1 77.1,225.5" class="cy-a" marker-end="url(#cyar)"/><path d="M48.1,175.4 A105,105 0 0 1 121.1,49.1" class="cy-a" marker-end="url(#cyar)"/><circle cx="150.0" cy="45.0" r="11" class="cy-n n0"/><circle cx="240.9" cy="202.5" r="11" class="cy-n n1"/><circle cx="59.1" cy="202.5" r="11" class="cy-n n2"/>
+<text x="150" y="144" text-anchor="middle" class="cy-c1">ИИ-усиление</text><text x="150" y="164" text-anchor="middle" class="cy-c2">ассистент + агент</text></svg></div>
+      <ol class="cy-l">
+        <li class="n0"><b>Измерение</b><span>Цифры, по которым видно состояние области, — регулярно, а не к годовому отчёту.</span></li>
+        <li class="n1"><b>Решение</b><span>Что меняем, кто отвечает и к какому сроку.</span></li>
+        <li class="n2"><b>Проверка исполнения</b><span>Сделано ли и дало ли эффект. Дальше — новый замер, и круг замыкается.</span></li>
+      </ol>
+    </div>
     <div class="c9" role="group" aria-label="Девять контуров">
       <button type="button" class="ct" id="ct-01" data-c="01" aria-controls="cpanel" aria-pressed="false"><span class="n">КОНТУР 01</span><h3>Финансы</h3><p>Маржа, спрятанные деньги, риски</p><span class="more">Подробнее</span></button>
       <button type="button" class="ct" id="ct-02" data-c="02" aria-controls="cpanel" aria-pressed="false"><span class="n">КОНТУР 02</span><h3>Сотрудники</h3><p>Ключевые люди, удержание, обратная связь</p><span class="more">Подробнее</span></button>
@@ -601,6 +677,12 @@ a.pain{margin-inline:0;padding:24px 14px}
         <a class="dl" href="management-os-pasport.pdf"><span class="dl-i" aria-hidden="true">PDF</span><span class="dl-t"><b>Паспорт программы</b><span>42 страницы: все девять контуров, состав и порядок работы, границы программы</span><span class="dl-go">Скачать PDF →</span></span></a>
       </div>
     </div>
+
+    <figure class="tl" aria-label="Карта программы по месяцам">
+      <figcaption><div class="eb">Карта программы</div><h3>9 контуров за 7 месяцев: по три сессии на каждый, по субботам</h3></figcaption>
+      <div class="tl-w"><div class="tl-mo"><span style="left:0.00%">Ноя</span><span style="left:14.15%">Дек</span><span style="left:28.77%">Янв</span><span style="left:43.40%">Фев</span><span style="left:56.60%">Мар</span><span style="left:71.23%">Апр</span><span style="left:85.38%">Май</span></div><div class="tl-x"><div class="tl-b up" style="left:6.13%;width:7.08%" title="Контур 01 · Финансы · 14–28 ноября"><i>01</i><span>Финансы</span></div><div class="tl-b dn" style="left:16.04%;width:7.08%" title="Контур 02 · Сотрудники · 5–19 декабря"><i>02</i><span>Сотрудники</span></div><div class="tl-b up" style="left:25.94%;width:10.38%" title="Контур 03 · Клиенты · 26 декабря – 16 января"><i>03</i><span>Клиенты</span></div><div class="tl-b dn" style="left:39.15%;width:7.08%" title="Контур 04 · Стратегия · 23 января – 6 февраля"><i>04</i><span>Стратегия</span></div><div class="tl-b up" style="left:49.06%;width:7.08%" title="Контур 05 · Цели · 13–27 февраля"><i>05</i><span>Цели</span></div><div class="tl-b dn" style="left:58.96%;width:7.08%" title="Контур 06 · Решения · 6–20 марта"><i>06</i><span>Решения</span></div><div class="tl-b up" style="left:68.87%;width:7.08%" title="Контур 07 · Изменения · 27 марта – 10 апреля"><i>07</i><span>Изменения</span></div><div class="tl-b dn" style="left:78.77%;width:10.38%" title="Контур 08 · Проекты · 17 апреля – 8 мая"><i>08</i><span>Проекты</span></div><div class="tl-b up" style="left:91.98%;width:7.08%" title="Контур 09 · ИИ · 15–29 мая"><i>09</i><span>ИИ</span></div><div class="tl-m" style="left:6.13%"><span>Очный старт</span></div><div class="tl-m end" style="left:99.06%"><span>Очная приёмка</span></div></div></div>
+      <ol class="tl-list"><li><b>01</b><span>Финансы</span><em>14–28 ноября</em></li><li><b>02</b><span>Сотрудники</span><em>5–19 декабря</em></li><li><b>03</b><span>Клиенты</span><em>26 декабря – 16 января</em></li><li><b>04</b><span>Стратегия</span><em>23 января – 6 февраля</em></li><li><b>05</b><span>Цели</span><em>13–27 февраля</em></li><li><b>06</b><span>Решения</span><em>6–20 марта</em></li><li><b>07</b><span>Изменения</span><em>27 марта – 10 апреля</em></li><li><b>08</b><span>Проекты</span><em>17 апреля – 8 мая</em></li><li><b>09</b><span>ИИ</span><em>15–29 мая</em></li></ol>
+    </figure>
   </div>
 </section>
 
@@ -705,7 +787,7 @@ function bigItem(wrap){
   var v=parseInt(wrap.getAttribute('data-big'),10), fin=wrap.getAttribute('data-big');
   if(isNaN(v))return null;
   function render(t){wrap.setAttribute('data-big',String(Math.round(v*t)))}
-  render(0);return {el:wrap,watch:wrap,margin:'0px 0px -50% 0px',render:render,final:fin,big:true};
+  wrap.setAttribute('data-big','');return {el:wrap,watch:wrap,margin:'0px 0px -15% 0px',render:render,final:fin,big:true};
 }
 [].forEach.call(document.querySelectorAll('.facts4 b,.res .v'),function(e){var i=textItem(e);if(i)items.push(i)});
 [].forEach.call(document.querySelectorAll('.wrap[data-big]'),function(e){var i=bigItem(e);if(i)items.push(i)});
@@ -721,6 +803,20 @@ items.forEach(function(it){
   io.observe(it.watch);
 });
 setTimeout(function(){items.forEach(function(it){if(!it.started){it.started=true;finish(it)}})},12000);
+}catch(e){}})();
+</script>
+<script>
+(function(){try{
+if(!('IntersectionObserver' in window))return;
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduce)return;
+[].forEach.call(document.querySelectorAll('.wf,.tl'),function(el){
+  el.classList.add('pre');
+  var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){
+    var bs=el.querySelectorAll('.tl-b');[].forEach.call(bs,function(b,i){b.style.transitionDelay=(i*90)+'ms'});
+    requestAnimationFrame(function(){el.classList.remove('pre')});io.disconnect()}})},{threshold:.35});
+  io.observe(el);
+  setTimeout(function(){el.classList.remove('pre')},12000);
+});
 }catch(e){}})();
 </script>
 </body>
